@@ -17,9 +17,9 @@ cities.filter(city => cities_array.push(city.name));
 
 //body-parser middleware
 app.use(bodyparser.urlencoded({extended:false}));
-// API 	 pk_9c2cd272c75a406a87e909cc2e0a4795
-const apiKey='41d4d9b4c12ad701ee6bd9193339177f';  //Openwheather
-const newKey='e2d803340101415e887120244210601';//weather.com
+// API 	 
+const apiKey='';  //Openwheather
+const newKey='';//weather.com
 
 function timeConverter(UNIX_timestamp){
   var a = new Date(UNIX_timestamp * 1000);
@@ -37,7 +37,7 @@ function timeConverter(UNIX_timestamp){
 
 function forecast_weather(){
  //let new_url=`http://api.weatherapi.com/v1/current.json?key=${newKey}&q=London&days=2`;
- let new_url=`http://api.weatherapi.com/v1/forecast.json?key=e2d803340101415e887120244210601&q=07112&days=7`;
+ let new_url=`http://api.weatherapi.com/v1/forecast.json?key="apiKey"&q=07112&days=7`;
  request(new_url,(err,response,body)=>{
     if(err){
       console.log('Error in History Data Retrive: '+err);
