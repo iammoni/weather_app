@@ -1,0 +1,150 @@
+</br>
+
+<div class="row jumbotron">
+<div class="col-md-6">
+<h1 class="display-4">{{ input.name }} ({{input.sys.country}})</h1>
+<strong>Geographical coordinates of the location :<br/></strong>Latitude: {{input.coord.lat}} Longitude: {{input.coord.lon}}<br/>
+<strong> Atmospheric Temprature: </strong>{{ input.main.temp}} Degree<br/>
+<strong> Atmospheric Pressure:</strong>{{input.main.pressure }} hPa<br/>
+<strong> Humidity: </strong>{{ input.main.humidity }} %<br/>
+<strong>Wind speed: </strong>{{ input.wind.speed }} meter/sec<br/>
+<strong>Date and time: </strong>{{time.time}}<br/>
+</div>
+<div class="col-md-6">
+<div>
+<img src='http://openweathermap.org/img/wn/{{des.icon}}@2x.png' alt="W3Schools.com" style="width:200px;position:absolute;height:200px;margin-top:0;right:0;background-color:rgb(0, 110, 255)">
+</div>
+<h6>Atmospheric Description:<span style="color:dodgerblue;">{{des.description}}</span></h6>
+</div>
+</div>
+<div id="chartContainer1" style="height: 300px; width: 100%; margin-bottom:25px">
+  </div>
+  <div style="height: 100px;margin:15px 40% 15px 40%">
+  <input type="radio" id="temp" name="selcted" value="temp"  checked="checked">
+  <label for="temp">Temprature</label>
+  <input type="radio" id="Pressure" name="selcted" value="pressure">
+  <label for="pressure">Pressure</label>
+  <input type="radio" id="other" name="selcted" value="other">
+  <label for="Humidity">Humidity</label>
+  </div>
+<div id="chartContainer" style="height: 300px; width: 100%; margin-top:25px">
+  </div>
+
+  <script type="text/javascript">
+   
+  window.onload = function (forecast) {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+      title:{
+      text: "Compare Different-Cities Values by Line Chart"  
+      },
+      data: [
+      {        
+        type: "line",
+        dataPoints: [
+        { x: 10, y: 21 },
+        { x: 20, y: 25},
+        { x: 30, y: 20 },
+        { x: 40, y: 25 },
+        { x: 50, y: 27 },
+        { x: 60, y: 28 },
+        { x: 70, y: 28 },
+        { x: 80, y: 24 },
+        { x: 90, y: 26}
+      
+        ]
+      },
+        {        
+        type: "line",
+        dataPoints: [
+        { x: 10, y: 31 },
+        { x: 20, y: 35},
+        { x: 30, y: 30 },
+        { x: 40, y: 35 },
+        { x: 50, y: 35 },
+        { x: 60, y: 38 },
+        { x: 70, y: 38 },
+        { x: 80, y: 34 },
+        { x: 90, y: 44}
+      
+        ]
+      },
+        {        
+        type: "line",
+        dataPoints: [
+        { x: 10, y: 45 },
+        { x: 20, y: 50},
+        { x: 30, y: 40 },
+        { x: 40, y: 45 },
+        { x: 50, y: 45 },
+        { x: 60, y: 48 },
+        { x: 70, y: 43 },
+        { x: 80, y: 41 },
+        { x: 90, y: 28}
+      
+        ]
+      },
+        {        
+        type: "line",
+        dataPoints: [
+        { x: 10, y: 71 },
+        { x: 20, y: 55},
+        { x: 30, y: 50 },
+        { x: 40, y: 65 },
+        { x: 50, y: 95 },
+        { x: 60, y: 68 },
+        { x: 70, y: 28 },
+        { x: 80, y: 34 },
+        { x: 90, y: 14}
+      
+        ]
+      }
+      ]
+    });
+
+
+
+var chart1 = new CanvasJS.Chart("chartContainer1", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+      text: "Average Temprature - per Month"
+      },
+      axisX: {
+        //valueFormatString: "date",
+        interval:1,
+        labelAngle: -30
+        //intervalType: "day",
+       // text:"date"
+      },
+      axisY:{
+        includeZero: false,
+        //text:"Temprature"
+
+      },
+	data: [{        
+		type: "line",
+      	indexLabelFontSize: 16,
+		dataPoints: [
+        { x: new Date(2020, 00, 1), y: 7 },
+        { x: new Date(2020, 01, 1), y: 12 },
+        { x: new Date(2020, 02, 1), y: 19 },
+        { x: new Date(2020, 03, 1), y: 25},
+        { x: new Date(2020, 04, 1), y: 28 },
+        { x: new Date(2020, 05, 1), y: 35 },
+        { x: new Date(2020, 06, 1), y: 32 },
+        { x: new Date(2020, 07, 1), y: 28 },
+        { x: new Date(2020, 08, 1), y: 18 },
+        { x: new Date(2020, 09, 1), y: 15 },
+        { x: new Date(2020, 10, 1), y: 10 },
+        { x: new Date(2020, 11, 1), y: 6 }
+    ]
+	}]
+});
+
+    chart.render();
+
+    chart1.render();
+
+  }
+  </script>
